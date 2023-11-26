@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 1vh;
+    width: 100%;
+}
+.navbar-glass {
+    border-radius: 0px 0px 28px 28px;
+}
+.main-glass {
+    border-radius: 28px;
+    border: 2px solid #000;
+    opacity: 0.5;
+    background: #091522;
+    box-shadow: 0px -4px 16px 0px #000;
+}
+
+.planet-glass {
+    border-radius: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    background: rgba(9, 21, 34, 0.80);
+    box-shadow: 0px -4px 16px 0px #000;
+}
