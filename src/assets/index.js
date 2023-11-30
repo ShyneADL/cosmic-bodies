@@ -15,6 +15,17 @@ import world from './world.svg';
 import velocity from './velocity.svg'
 import mainbg from './main-bg.jpg';
 import earthbg from './earth-bg.jpg';
+import earth from './earth.svg';
+import sun from './sun.svg';
+import mercury from './mercury.svg';
+import venus from './venus.svg';
+import mars from './mars.svg';
+import jupiter from './jupiter.svg';
+import saturn from './saturn.svg';
+import uranus from './uranus.svg';
+import neptune from './neptune.svg';
+import pluto from './pluto.svg';
+
 
 export { 
     mainbg,
@@ -34,4 +45,14 @@ export {
     more,
     velocity,
     weight,
+    sun,
+    earth, 
+    mercury,
+    venus,
+    mars,
+    jupiter,
+    saturn,
+    uranus,
+    neptune,
+    pluto,
  }

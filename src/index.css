@@ -12,6 +12,7 @@
 body {
     min-height: 1vh;
     width: 100%;
+    font-family: Lato;
 }
 .navbar-glass {
     border-radius: 0px 0px 28px 28px;
@@ -29,4 +30,22 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.30);
     background: rgba(9, 21, 34, 0.80);
     box-shadow: 0px -4px 16px 0px #000;
+}
+
+
+.submenu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch; 
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    scroll-behavior: smooth;
+}
+
+.submenu::-webkit-scrollbar {
+    display: none;
 }

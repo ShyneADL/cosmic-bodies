@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect, useRef } from 'react'
 import { menu, profile, right, more, world,mainbg } from '../assets';
 import celestialBodies from '../components/celestial_bodies';
 import { Link } from 'react-router-dom'
@@ -15,6 +15,24 @@ const style = {
 
 
 const Home = () => {
+  const submenuRef = useRef(null);
+  const handleScroll = () => {
+    if (submenuRef.current) {
+      const submenuWidth = submenuRef.current.clientWidth;
+      const submenuScrollWidth = submenuRef.current.scrollWidth;
+      if (submenuScrollWidth > submenuWidth) {
+        submenuRef.current.scrollRight = submenuScrollWidth + submenuWidth;
+      } 
+      else {
+        submenuRef.current.scrollRight = 0;
+      }
+    }
+  };
+  
+  useEffect(() => {
+    handleScroll();
+  }, []);
+
   return (
       <div style={style} className='flex flex-col items-center w-full'>
         {/* Navbar */}
@@ -30,17 +48,30 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='flex gap-4 items-center ml-4 '>
-          {celestialBodies.map((body) => (
-            <div key={body.id}>
-              <Link to={`/celestial-bodies/${body.id}`}>
-                <div className='flex items-center gap-2 rounded-2xl planet-glass px-[14px] py-[12px]'>
-                <img src={body.img} className='w-4'/>
-                <h2 className='text-white font-[700]'>{body.title}</h2>
-              </div>
-              </Link>
+        {/* Planet pills */}
+        <div className='relative overflow-x-auto'>
+          <div className='ml-10 w-full submenu space-x-4' ref={submenuRef} id="id">
+            {celestialBodies.map((body) => (
+                <Link key={body.id} to={`/celestial-bodies/${body.id}`}>
+                  <div className='flex flex-shrink-0 items-center justify-center  gap-2 planet-glass px-[24px] py-[12px] w-fit'>
+                    <img src={body.image} className='w-6 h-6'/>
+                    <h2 className='text-white font-[700] w-fit'>{body.id}</h2>
+                  </div>
+                </Link>
+              
+            ))}
+          </div>
+        </div>
+
+        <div className='flex flex-col items-start justify-start py-5 px-6 main-glass'>
+          <h3 className='text-[16px] text-white font-[700]'>Planet of the day</h3>
+          <div className='flex items-center gap-3'>
+            <img />
+            <div className='flex flex-col items-start justify-start'>
+              <h3 className='text-[16px] text-Cyan font-[700]'></h3>
+              <p className='text-[12px] text-white font-[400]'></p>
             </div>
-          ))}
+          </div>
         </div>
 
       </div>
