@@ -34,7 +34,7 @@ const Home = () => {
   }, []);
 
   return (
-      <div style={style} className='flex flex-col items-center w-full'>
+      <div style={style} className='flex flex-col items-center overflow-x-auto w-full'>
         {/* Navbar */}
         <div className='flex items-center navbar-glass gap-[40px] py-[18px]'>
           {/* Outer Circle for menu */}
@@ -49,11 +49,10 @@ const Home = () => {
         </div>
 
         {/* Planet pills */}
-        <div className='relative overflow-x-auto'>
-          <div className='ml-10 w-full submenu space-x-4' ref={submenuRef} id="id">
+          <div className='submenu w-full px-8' ref={submenuRef} id="id">
             {celestialBodies.map((body) => (
                 <Link key={body.id} to={`/celestial-bodies/${body.id}`}>
-                  <div className='flex flex-shrink-0 items-center justify-center  gap-2 planet-glass px-[24px] py-[12px] w-fit'>
+                  <div className='flex flex-shrink-0 items-center justify-center gap-2 planet-glass px-[24px] py-[12px]'>
                     <img src={body.image} className='w-6 h-6'/>
                     <h2 className='text-white font-[700] w-fit'>{body.id}</h2>
                   </div>
@@ -61,7 +60,6 @@ const Home = () => {
               
             ))}
           </div>
-        </div>
 
         <div className='flex flex-col items-start justify-start py-5 px-6 main-glass'>
           <h3 className='text-[16px] text-white font-[700]'>Planet of the day</h3>
