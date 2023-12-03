@@ -1,5 +1,5 @@
 import React,{ useEffect, useRef } from 'react'
-import { menu, profile, right, more, world,mainbg } from '../assets';
+import { menu, profile, right, more, world,mainbg, earth } from '../assets';
 import celestialBodies from '../components/celestial_bodies';
 import { Link } from 'react-router-dom'
 
@@ -49,7 +49,7 @@ const Home = () => {
         </div>
 
         {/* Planet pills */}
-          <div className='submenu w-full px-8' ref={submenuRef} id="id">
+          <div className='submenu w-full px-8 mt-5' ref={submenuRef} id="id">
             {celestialBodies.map((body) => (
                 <Link key={body.id} to={`/celestial-bodies/${body.id}`}>
                   <div className='flex flex-shrink-0 items-center justify-center gap-2 planet-glass px-[24px] py-[12px]'>
@@ -61,15 +61,25 @@ const Home = () => {
             ))}
           </div>
 
-        <div className='flex flex-col items-start justify-start py-5 px-6 main-glass'>
-          <h3 className='text-[16px] text-white font-[700]'>Planet of the day</h3>
-          <div className='flex items-center gap-3'>
-            <img />
-            <div className='flex flex-col items-start justify-start'>
-              <h3 className='text-[16px] text-Cyan font-[700]'></h3>
-              <p className='text-[12px] text-white font-[400]'></p>
-            </div>
+        {/* Planet of the day */}
+        <div className='flex flex-col items-start justify-start py-5 px-6 mx-8 mt-6 main-glass'>
+          <h3 className='text-[16px] text-white font-[700] leading-[18px]'>Planet of the day</h3>
+          <div className='flex items-start gap-3 mt-5'>
+              <img src={earth} className='w-[60px]'/>
+              <div className='flex flex-col items-start justify-start'>
+                <h3 className='text-[16px] text-Cyan font-[700]'>Earth</h3>
+                <p className='text-[12px] text-white font-[300]'>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, only being larger than Mercury. In the English language, Mars is named for the Roman god of war.</p>
+              </div>
           </div>
+          <div className='flex items-center gap-2 justify-end w-full'>
+            <p className='text-[12px] text-white font-[700]'>Details</p>
+            <img src={right}/>
+          </div>
+        </div>
+
+        <div className='flex flex-col gap-[14px] items-start justify-start py-5 px-6 mx-8 mt-7 main-glass'>
+          <h3 className='text-[16px] text-white font-[700] leading-[18px]'>Solar System</h3>
+          <p className='text-[12px] text-white font-[300]'>The Solar System[c] is the gravitationally bound system of the Sun and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse of a giant interstellar molecular cloud. The vast majority (99.86%) of the system's mass is in the Sun, with most of the remaining mass contained in the planet Jupiter. The four inner system planets—Mercury, Venus, Earth and Mars—are terrestrial planets, being composed primarily of rock and metal. The four giant planets of the outer system are substantially larger and more massive than the terrestrials.</p>
         </div>
 
       </div>
